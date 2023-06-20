@@ -1,0 +1,21 @@
+<app-nav></app-nav>
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <form [formGroup]="form" (submit)="submit()">
+            <h1 class="h3 mb-3 fw-normal"> Please sign in</h1>
+            <input formControlName="email" class="form-control mt-2" placeholder="Please enter email" type="email">
+            <input formControlName="password" class="form-control mt-2" placeholder="Please enter the name" type="password">
+            <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Submit</button>
+        
+        </form>
+        
+    </div>
+
+    <div class="col-md-4">
+        
+    </div>
+</div>
+
