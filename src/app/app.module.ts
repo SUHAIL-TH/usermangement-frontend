@@ -16,6 +16,9 @@ import { userReducer } from './components/admin/state/user/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UserEffect } from './components/admin/state/user/user.effects';
+import { ProfileComponent } from './components/profile/profile.component';
+import { profileReducer } from './state/user.reducer';
+import { ProfileEffects } from './state/user.effects';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { UserEffect } from './components/admin/state/user/user.effects';
     NavComponent,
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
  
   ],
   imports: [
@@ -33,8 +37,8 @@ import { UserEffect } from './components/admin/state/user/user.effects';
     HttpClientModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({users:userReducer}, {}),
-    EffectsModule.forRoot([UserEffect]),
+    StoreModule.forRoot({users:userReducer,user:profileReducer}),
+    EffectsModule.forRoot([UserEffect,ProfileEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],

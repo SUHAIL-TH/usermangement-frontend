@@ -3,7 +3,8 @@ export interface User{
     _id:string,
     name:string,
     email:string,
-    password:number
+    password:string,
+    image : string
 }
 
 export interface UserState{

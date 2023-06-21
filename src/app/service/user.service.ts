@@ -8,6 +8,7 @@ import { delay } from 'rxjs';
 export class UserService {
 
   private baseUrl="http://localhost:5000/admin/"
+  private userUrl="http://localhost:5000/"
 
   getuser(){
     return this.http.get(`${this.baseUrl}users`).pipe(delay(400));
@@ -17,6 +18,10 @@ export class UserService {
     return this.http.get(`${this.baseUrl}deleteuser?id=${id}`)
     
     
+  }
+  getprofile(){
+    
+    return this.http.get(`${this.userUrl}user`,{withCredentials:true})
   }
   
 

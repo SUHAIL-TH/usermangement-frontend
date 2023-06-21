@@ -22,7 +22,7 @@ export class UserEffect{
             this.userService.getuser().pipe(
                 map(users=>(console.log(users), UserActions.loaduserSucces({users:users as ReadonlyArray<User>}))),
                 catchError((error)=>of(UserActions.loaduserFailure({error})))
-            ))
+            )) 
         )
     })
     removeuser$=createEffect(()=>{
