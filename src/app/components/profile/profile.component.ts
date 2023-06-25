@@ -21,6 +21,9 @@ export class ProfileComponent implements OnInit {
   state: boolean = false;
   state1: boolean = true;
   selectedImage:any|File
+  message:string
+
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +45,23 @@ export class ProfileComponent implements OnInit {
     }});
 
   ngOnInit(): void {
+
+    
+    this.http.get('http://localhost:5000/user',{
+    withCredentials:true
+   }).subscribe( 
+    (res:any)=>{
+    
+    Emitters.authEmitter.emit(true)
+   },
+   (err)=>{
+    
+    this.message="you are not logedin";
+    Emitters.authEmitter.emit(false)
+    this.route.navigate(['/'])
+    
+    
+   })
     this.store.dispatch(loadprofile());
     this.form=this.formBuilder.group({
       image:['']
@@ -73,6 +93,12 @@ export class ProfileComponent implements OnInit {
     
     
 
+  }
+  getImageUrl(image: string): string {
+    console.log(`http://localhost:5000/public/user_images/${image}`);
+    return `http://localhost:5000/public/user_images/${image}`;
+   
+    
   }
 }
 

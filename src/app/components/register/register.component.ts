@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder} from '@angular/forms'
 import {  Router } from '@angular/router';
 import Swal from 'sweetalert2'
+import { Emitters } from '../emitters/emitter';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,8 +25,22 @@ export class RegisterComponent implements  OnInit {
       email:"",
       password:""
     })
-     
+    this.http.get('http://localhost:5000/user',{
+    withCredentials:true
+   }).subscribe( 
+    (res:any)=>{
+    Emitters.authEmitter.emit(true)
+      this.router.navigate(['/'])
+   },
+   (err)=>{
+    
+    Emitters.authEmitter.emit(false)
+    
+   })
   }
+    
+     
+  
   ValidateEmail=(email:any)=>{
     var validRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if(email.match(validRegex)){

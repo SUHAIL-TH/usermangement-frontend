@@ -19,6 +19,7 @@ import { UserEffect } from './components/admin/state/user/user.effects';
 import { ProfileComponent } from './components/profile/profile.component';
 import { profileReducer } from './state/user.reducer';
 import { ProfileEffects } from './state/user.effects';
+import { ParentComponent } from './components/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProfileEffects } from './state/user.effects';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    ParentComponent,
  
   ],
   imports: [

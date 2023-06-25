@@ -24,7 +24,6 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.router.snapshot.paramMap.get('id');
     this.getUserData(this.userId as string);
-
     this.form=this.formBuilder.group({
       name:this.userName,
       email:this.email

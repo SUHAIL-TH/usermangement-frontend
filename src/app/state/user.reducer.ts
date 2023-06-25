@@ -14,7 +14,7 @@ export const intialState:UserState={
         name: "",
         email: "",
         password: '',
-        image : ''
+        image : ' '
     },
     loading: false,
     loaded: false,

@@ -6,9 +6,12 @@
     <div class="col-md-4">
         <form [formGroup]="form" (submit)="submit()">
             <h1 class="h3 mb-3 fw-normal"> Please register</h1>
+            <label class="text-danger" >Name</label>
             <input formControlName="name" class="form-control mt-2" placeholder="Please enter the name" type="text">
-            <input formControlName="email" class="form-control mt-2" placeholder="Please enter the name" type="email">
-            <input formControlName="password" class="form-control mt-2" placeholder="Please enter the name" type="password">
+            <label class="text-danger">email</label>
+            <input formControlName="email" class="form-control mt-2" placeholder="Please enter the email " type="email">
+            <label class="text-danger">password</label>
+            <input formControlName="password" class="form-control mt-2" placeholder="Please enter the password" type="password">
             <button class="w-100 btn btn-lg btn-dark mt-2" type="submit">Submit</button>
         
         </form>
